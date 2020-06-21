@@ -1,0 +1,32 @@
+{
+  "name": "@toolkit/metawww",
+  "version": "0.0.0",
+  "description": "Get website metadata",
+  "main": "index.js",
+  "author": {
+    "name": "Christos Georgiou",
+    "email": "christos@cgeosoft.com",
+    "url": "https://cgeosoft.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChristosGeorgiou/toolkit"
+  },
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "start": "ts-node dist/server.js",
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.49",
+    "typescript": "^3.9.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.13"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "name": "@toolkit/commons",
+    "version": "0.0.0",
+    "description": "Common libraries for toolkit",
+    "author": {
+        "name": "Christos Georgiou",
+        "email": "christos@cgeosoft.com",
+        "url": "https://cgeosoft.com"
+    }
+}
