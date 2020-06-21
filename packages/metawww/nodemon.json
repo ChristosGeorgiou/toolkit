@@ -11,8 +11,6 @@
     },
     "watch": [
       "src/",
-      "public/",
-      "view/",
       "tsconfig.json"
     ],
     "env": {

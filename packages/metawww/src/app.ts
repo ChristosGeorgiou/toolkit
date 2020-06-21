@@ -23,13 +23,14 @@ export class App {
 
     private routes(controllers: { forEach: (arg0: (controller: any) => void) => void; }) {
         controllers.forEach(controller => {
-            this.app.use('/', controller.router)
+            this.app.use('/api', controller.router)
         })
     }
 
     private assets() {
         this.app.use(express.static('public'))
         this.app.use(express.static('views'))
+        this.app.use("/screenshots", express.static('data/screenshots'))
     }
 
     private template() {
