@@ -1,15 +1,13 @@
 import * as bodyParser from 'body-parser'
 import { App } from './app'
-import { HomeController } from './controllers/home/home.controller'
-import { MetadataController } from './controllers/metadata/metadata.controller'
-import { PostsController } from './controllers/posts/posts.controller'
+import { MetadataController } from './controllers/metadata.controller'
+import { ScreenshotsController } from './controllers/screenshots.controller'
 import loggerMiddleware from './middleware/logger'
 
 const app = new App({
     port: 3000,
     controllers: [
-        new HomeController(),
-        new PostsController(),
+        new ScreenshotsController(),
         new MetadataController()
     ],
     middleWares: [
