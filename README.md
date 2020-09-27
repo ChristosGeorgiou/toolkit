@@ -1,21 +1,26 @@
-# TinyTools
+# Tools
 
-- Youtube downloader
-- Earthquakes
-- Support Details
-- Remote desktop
-- Push notification
-- Clock
-- Dynamic DNS
 - Bitmap to Vector
-- PWA Generator
-- Image Resizer
-- Webshots
+- Clock Tools (alarm, stopwatch)
+- Color generator
 - Cron
-- color generator
-- icon generator
+- Dynamic DNS
+- Earthquakes Explorer
+- Icon generator
+- Image Resizer
+- IMG to PDF Convertor
+- Network Tools (speed test, ping, traceroute)
+- Push notification
+- PWA Generator
+- Random Data Generators (passwords, lorem, datasets)
+- Remote desktop
+- Support Details
+- UTF8 to ANSI Convertor
+- WebRC Screen Share
+- Website Metadata (og, screenshot, tech stack)
+- Youtube downloader
 
-## earthquake map
+## Earthquakes Explorer
 
 - Auto zoom in general user location
 - load latest and closest earthquakes
@@ -33,7 +38,6 @@ Http cron request with statistics.
 - program http hits in intervals
 - log response data and create charts
 - github integration for configuration
-
 
 ## icon generator
 
