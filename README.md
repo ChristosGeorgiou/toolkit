@@ -1,24 +1,24 @@
 # Tools
 
+- Og Image Generator
 - Bitmap to Vector
 - Clock Tools (alarm, stopwatch)
-- Color generator
+- Color Generator
 - Cron
 - Dynamic DNS
 - Earthquakes Explorer
-- Icon generator
-- Image Resizer
-- IMG to PDF Convertor
+- Icon Generator
+- Badge Image Editor
+- Template PDF Generator
 - Network Tools (speed test, ping, traceroute)
-- Push notification
+- Push Notification
 - PWA Generator
 - Random Data Generators (passwords, lorem, datasets)
-- Remote desktop
+- Remote Desktop / Screen Share
 - Support Details
 - UTF8 to ANSI Convertor
-- WebRC Screen Share
-- Website Metadata (og, screenshot, tech stack)
-- Youtube downloader
+- Website Metadata Extract (og, screenshot, tech stack)
+~~- Youtube downloader~~
 
 ## Earthquakes Explorer
 
@@ -31,7 +31,7 @@ Formula for good looking radious
 
     var radius = (Math.exp(magnitude/1.01-0.13))*1000;
 
-## cron
+## Cron
 
 Http cron request with statistics.
 
@@ -39,7 +39,7 @@ Http cron request with statistics.
 - log response data and create charts
 - github integration for configuration
 
-## icon generator
+## Icon Generator
 
 1. Upload an image
 2. Select one or more icon types
