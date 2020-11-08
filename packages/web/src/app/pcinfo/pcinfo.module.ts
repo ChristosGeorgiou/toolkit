@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
-import { MetadataComponent } from './metadata.component';
+import { PcinfoComponent } from './pcinfo.component';
 
 @NgModule({
-  declarations: [MetadataComponent],
+  declarations: [PcinfoComponent],
   imports: [
     SharedModule,
     RouterModule.forChild([{
       path: '',
-      component: MetadataComponent
+      component: PcinfoComponent
     }])
   ]
 })
-export class MetadataModule { }
+export class PcinfoModule { }

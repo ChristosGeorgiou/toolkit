@@ -1,0 +1,26 @@
+:host {
+  .card {
+    position: relative;
+    overflow: hidden;
+  }
+  .title {
+    position: absolute;
+    background: var(--bs-gray);
+    left: 0;
+    top: 0;
+    font-size: 0.6rem;
+    display: block;
+    color: var(--bs-light);
+    padding: 0 .5rem;
+    border-radius: 0 0 .2rem 0;
+  }
+  .image {
+    background-color: black;
+    border-radius: 0.5rem;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+}

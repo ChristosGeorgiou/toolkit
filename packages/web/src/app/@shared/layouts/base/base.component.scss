@@ -1,8 +1,24 @@
-:host{
-  .size-md{
+:host {
+  .top-border{
+    position: absolute;
+    height: 3px;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .size-md {
     max-width: 768px;
   }
-  .size-lg{
+  .size-lg {
     max-width: 992px;
+  }
+  .footer {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 4rem;
+    color: var(--bs-gray);
+    a {
+      color: var(--bs-gray);
+    }
   }
 }

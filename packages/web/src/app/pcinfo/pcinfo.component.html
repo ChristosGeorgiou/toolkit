@@ -1,0 +1,14 @@
+<app-base size="md" [back]="{route:'/',label:'home'}" tool="pcinfo">
+  <app-header tool="pcinfo"></app-header>
+  <div class="card">
+    <div class="card-body">
+      <dl class="row mb-0">
+        <ng-container *ngFor="let d of details">
+          <dt class="col-sm-4">
+            <span class="{{d.icon}} fa-fw"></span> {{d.label}}:</dt>
+          <dd class="col-sm-8">{{d.value}}</dd>
+        </ng-container>
+      </dl>
+    </div>
+  </div>
+</app-base>
