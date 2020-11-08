@@ -1,0 +1,12 @@
+<div class="container size-{{size}}">
+  <div class="py-2">
+    <a *ngIf="back" [routerLink]="back.route" class="btn btn-light">
+      <span class="fas fa-chevron-left fa-fw text-muted"></span> {{back.label}}
+    </a>
+  </div>
+  <ng-content></ng-content>
+</div>
+<p class="text-center text-muted mt-4">
+  Made with <span class="far fa-heart"></span>
+  by <a class="text-muted" href="https://cgeosoft.com" target="_black">cgeosoft</a>
+</p>
