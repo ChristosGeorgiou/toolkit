@@ -1,0 +1,8 @@
+[build]
+  base = "/packages/web"
+  publish = "dist"
+  command = "npm run build -- --prod"
+[[redirects]]
+  from = "/*"
+  status = 200
+  to = "/index.html"
