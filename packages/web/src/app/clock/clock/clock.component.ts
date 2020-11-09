@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TOOLS } from '@shared/models/all';
 
 @Component({
   selector: 'app-clock',
@@ -10,10 +11,13 @@ export class ClockComponent implements OnInit {
   hours = '00';
   minutes = '00';
   seconds = '00';
+  color: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    const t = TOOLS.find(x => x.name === 'clock');
+    this.color = t.color;
 
     setInterval(() => {
       const dt = new Date();

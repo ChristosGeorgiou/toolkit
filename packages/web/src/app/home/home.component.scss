@@ -6,11 +6,11 @@
     text-decoration: none;
     color: var(--bs-gray-dark);
     align-items: flex-start;
-    background-color: var(--bs-white);
     // border: solid 1px var(--bs-gray);
-    box-shadow: 0 0 .2rem #bbbbbb;
-    border-radius: 1rem;
-    padding: 0.5rem;
+    // background-color: var(--bs-white);
+    // box-shadow: 0 0 .2rem #bbbbbb;
+    // border-radius: 1rem;
+    // padding: 0.5rem;
     .tool-icon {
       font-size: 3rem;
       margin-right: 1rem;
@@ -32,7 +32,7 @@
     }
     &:hover {
       color: var(--bs-gray);
-      box-shadow: 0 .2rem .4rem #bbbbbb;
+      // box-shadow: 0 .2rem .4rem #bbbbbb;
     }
   }
 }
