@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { circle, latLng, marker, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-pcinfo',
@@ -7,47 +9,111 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PcinfoComponent implements OnInit {
 
-  details = [{
-    label: 'Operating System',
-    icon: 'fas fa-desktop',
-    value: 'Linux (64 - bit)'
-  }, {
-    label: 'Browser',
-    icon: 'fas fa-window-maximize',
-    value: 'Chrome 86.0.4240.183'
-  }, {
-    label: 'IP Address',
-    icon: 'fas fa-network-wired',
-    value: '79.107.82.183'
-  }, {
-    label: 'Javascript Enabled',
-    icon: 'fab fa-js',
-    value: 'Yes'
-  }, {
-    label: 'Cookies Enabled',
-    icon: 'fas fa-cookie-bite',
-    value: 'Yes'
-  }, {
-    label: 'Color Depth',
-    icon: 'fas fa-palette',
-    value: '24'
-  }, {
-    label: 'Screen Resolution',
-    icon: 'fas fa-expand-alt',
-    value: '2560 x 1440'
-  }, {
-    label: 'Browser Window',
-    icon: 'fas fa-expand-arrows-alt',
-    value: '1272 x 1328'
-  }, {
-    label: 'User Agent',
-    icon: 'fas fa-user-secret',
-    value: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome / 86.0.4240.183 Safari / 537.36}'
-  }];
+  browser: {
+    name?: string
+    os?: string
+    ua?: string
+    color?: string
+    resolution?: string
+  } = {};
 
-  constructor() { }
+  location: any;
+
+  leaflet = {
+    options: {
+      layers: [
+        tileLayer('http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', { maxZoom: 18, attribution: '...' })
+      ],
+      zoom: 5,
+      center: null
+    },
+    layers: []
+  };
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
+    this.loadBrowser();
+    this.loadLocation();
+  }
+
+  private loadBrowser(): void {
+    this.browser.ua = navigator.userAgent;
+    this.browser.os = this.getOsName();
+    this.browser.color = `${screen.colorDepth} bit`;
+    this.browser.name = this.getBrowserName();
+    this.browser.resolution = `${screen.width}px X ${screen.height}px`;
+  }
+
+  private loadLocation(): void {
+    this.http
+      .get<any>(`geoip`)
+      .subscribe(resp => {
+        this.location = resp;
+        this.leaflet.options.center = latLng(resp.geo.ll);
+        this.leaflet.layers = [
+          circle(resp.geo.ll, { radius: resp.geo.area }),
+          marker(resp.geo.ll)
+        ];
+      });
+  }
+
+  private getOsName(): string {
+    let os = 'Unknown OS';
+    if (navigator.appVersion.indexOf('Win') !== -1) { os = 'Windows'; }
+    if (navigator.appVersion.indexOf('Mac') !== -1) { os = 'MacOS'; }
+    if (navigator.appVersion.indexOf('X11') !== -1) { os = 'UNIX'; }
+    if (navigator.appVersion.indexOf('Linux') !== -1) { os = 'Linux'; }
+    return os;
+  }
+
+  private getBrowserName(): string {
+    const navUserAgent = navigator.userAgent;
+    let browserName = navigator.appName;
+    let browserVersion = '' + parseFloat(navigator.appVersion);
+    const majorVersion = parseInt(navigator.appVersion, 10);
+    let tempNameOffset, tempVersionOffset, tempVersion;
+
+    if ((tempVersionOffset = navUserAgent.indexOf('Opera')) != -1) {
+      browserName = 'Opera';
+      browserVersion = navUserAgent.substring(tempVersionOffset + 6);
+      if ((tempVersionOffset = navUserAgent.indexOf('Version')) != -1) {
+        browserVersion = navUserAgent.substring(tempVersionOffset + 8);
+      }
+    } else if ((tempVersionOffset = navUserAgent.indexOf('MSIE')) != -1) {
+      browserName = 'Microsoft Internet Explorer';
+      browserVersion = navUserAgent.substring(tempVersionOffset + 5);
+    } else if ((tempVersionOffset = navUserAgent.indexOf('Chrome')) != -1) {
+      browserName = 'Chrome';
+      browserVersion = navUserAgent.substring(tempVersionOffset + 7);
+    } else if ((tempVersionOffset = navUserAgent.indexOf('Safari')) != -1) {
+      browserName = 'Safari';
+      browserVersion = navUserAgent.substring(tempVersionOffset + 7);
+      if ((tempVersionOffset = navUserAgent.indexOf('Version')) != -1) {
+        browserVersion = navUserAgent.substring(tempVersionOffset + 8);
+      }
+    } else if ((tempVersionOffset = navUserAgent.indexOf('Firefox')) != -1) {
+      browserName = 'Firefox';
+      browserVersion = navUserAgent.substring(tempVersionOffset + 8);
+    } else if ((tempNameOffset = navUserAgent.lastIndexOf(' ') + 1) < (tempVersionOffset = navUserAgent.lastIndexOf('/'))) {
+      browserName = navUserAgent.substring(tempNameOffset, tempVersionOffset);
+      browserVersion = navUserAgent.substring(tempVersionOffset + 1);
+      if (browserName.toLowerCase() == browserName.toUpperCase()) {
+        browserName = navigator.appName;
+      }
+    }
+
+    // trim version
+    if ((tempVersion = browserVersion.indexOf(';')) != -1) {
+      browserVersion = browserVersion.substring(0, tempVersion);
+    }
+    if ((tempVersion = browserVersion.indexOf(' ')) != -1) {
+      browserVersion = browserVersion.substring(0, tempVersion);
+    }
+
+    return `${browserName} ${browserVersion}`;
   }
 
 }

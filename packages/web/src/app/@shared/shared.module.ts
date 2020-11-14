@@ -11,12 +11,13 @@ import { BaseComponent } from './layouts/base/base.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     CommonModule,
     BaseComponent,
-    HeaderComponent
+
+    HeaderComponent,
   ]
 })
 export class SharedModule { }

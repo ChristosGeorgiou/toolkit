@@ -2,13 +2,36 @@
   <app-header tool="pcinfo"></app-header>
   <div class="card">
     <div class="card-body">
+      <div class="card-title">
+        <span class="fas fa-window-maximize fa-fw"></span> Browser</div>
       <dl class="row mb-0">
-        <ng-container *ngFor="let d of details">
-          <dt class="col-sm-4">
-            <span class="{{d.icon}} fa-fw"></span> {{d.label}}:</dt>
-          <dd class="col-sm-8">{{d.value}}</dd>
-        </ng-container>
+        <dt class="col-sm-4">Name:</dt>
+        <dd class="col-sm-8">{{browser.name}}&nbsp;</dd>
+        <dt class="col-sm-4">Operating System:</dt>
+        <dd class="col-sm-8">{{browser.os}}&nbsp;</dd>
+        <dt class="col-sm-4">Resolutiom:</dt>
+        <dd class="col-sm-8">{{browser.resolution}}&nbsp;</dd>
+        <dt class="col-sm-4">Color Depth:</dt>
+        <dd class="col-sm-8">{{browser.color}}&nbsp;</dd>
+        <dt class="col-sm-4">User Agent:</dt>
+        <dd class="col-sm-8">{{browser.ua}}&nbsp;</dd>
       </dl>
     </div>
+  </div>
+
+  <div *ngIf="location" class="card">
+    <div class="card-body">
+      <div class="card-title">
+        <span class="fas fa-window-maximize fa-fw"></span> Location</div>
+      <dl class="row mb-0">
+        <dt class="col-sm-4">Address:</dt>
+        <dd class="col-sm-8">{{location.ip}}&nbsp;</dd>
+        <dt class="col-sm-4">Location:</dt>
+        <dd class="col-sm-8">{{location.geo.city}}&nbsp;</dd>
+        <dt class="col-sm-4">Timezone:</dt>
+        <dd class="col-sm-8">{{location.geo.timezone}}&nbsp;</dd>
+      </dl>
+    </div>
+    <div style="height: 300px;" leaflet [leafletOptions]="leaflet.options" [leafletLayers]="leaflet.layers"> </div>
   </div>
 </app-base>

@@ -5,3 +5,20 @@
 body {
   font-family: "Source Code Pro", monospace;
 }
+
+.card {
+  margin-bottom: 1rem;
+  .card-title {
+    font-weight: light;
+    font-size: 1.2rem;
+    span{
+      color:var(--bs-gray-dark)
+    }
+  }
+
+  dl{
+    dt{
+      text-align: right;
+    }
+  }
+}

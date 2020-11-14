@@ -18,6 +18,20 @@
 - Support Details
 - UTF8 to ANSI Convertor
 - Website Metadata Extract (og, screenshot, tech stack)
+- Codes Generator
+- Email Extractor
+- Image Mirror
+- Image Resizer
+- Image Rotator
+- 3x Resizer
+- Image to JPEG
+- Image Metadata Remover
+- Thumbnail Creator
+- PDF Merger
+- PDF Page Exporter
+- Text Randomizer
+- Text Sorter
+- Quick Contest
 ~~- Youtube downloader~~
 
 ## Earthquakes Explorer

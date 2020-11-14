@@ -24,10 +24,16 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "/"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "node_modules/leaflet/dist/leaflet.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.scss"
