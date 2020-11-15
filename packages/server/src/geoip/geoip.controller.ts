@@ -5,9 +5,7 @@ import { lookup } from 'geoip-lite';
 export class GeoipController {
     @Get()
     getHello(@Ip() ip): any {
-        ip = "79.107.82.183"
-        if (!ip)
-            throw new BadRequestException()
+        if (!ip) throw new BadRequestException()
 
         return {
             ip,
