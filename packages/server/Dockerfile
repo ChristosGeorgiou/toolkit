@@ -1,26 +1,24 @@
 
-FROM node:12-alpine as builder
+FROM node:14-alpine as builder
 
 ENV NODE_ENV build
 
-USER node
-WORKDIR /home/node
+WORKDIR /app
 
-COPY . /home/node
+COPY . /app
 
 RUN npm ci \
     && npm run build
 
-FROM node:12-alpine
+FROM node:14-alpine
 
 ENV NODE_ENV production
 
-USER node
-WORKDIR /home/node
+WORKDIR /app
 
-COPY --from=builder /home/node/package*.json /home/node/
-COPY --from=builder /home/node/dist/ /home/node/dist/
+COPY --from=builder /app/package*.json /app/
+COPY --from=builder /app/dist/ /app/dist/
 
 RUN npm ci
 
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/main.js"]
