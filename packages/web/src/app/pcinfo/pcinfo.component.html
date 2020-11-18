@@ -32,6 +32,6 @@
         <dd class="col-sm-8">{{location.geo.timezone}}&nbsp;</dd>
       </dl>
     </div>
-    <div style="height: 300px;" leaflet [leafletOptions]="leaflet.options" [leafletLayers]="leaflet.layers"> </div>
+    <div *ngIf="location.geo" style="height: 300px;" leaflet [leafletOptions]="leaflet.options" [leafletLayers]="leaflet.layers"> </div>
   </div>
 </app-base>
