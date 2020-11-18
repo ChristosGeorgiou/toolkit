@@ -2,7 +2,7 @@
   "name": "@tools/lerna",
   "private": true,
   "scripts": {
-    "start": "lerna run start --parallel --scope @tools/web --scope @tools/server"
+    "start": "lerna run start:dev --parallel --scope @tools/web --scope @tools/server"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
