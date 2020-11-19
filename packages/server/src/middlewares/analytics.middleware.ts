@@ -13,7 +13,7 @@ export class AnalyticsMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: Function) {
     // console.log(req.ip)
     woopra.identify(req.ip, {})
-    woopra.track("execute", {
+    woopra.track("pv", {
       url: req.url,
       params: JSON.stringify(req.params)
     })
