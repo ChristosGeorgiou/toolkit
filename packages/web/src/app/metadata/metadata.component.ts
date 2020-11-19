@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-metadata',
@@ -8,25 +10,27 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class MetadataComponent implements OnInit {
   @ViewChild('url') url: ElementRef;
 
-  metadata;
+  og: any;
+  screenshot;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
   }
 
   getMetadata(): void {
-    this.metadata = {
-      og: {
-        title: 'BBC - Homepage',
-        description: 'Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates and entertains - wherever you are, whatever your age.',
-        type: 'website',
-        image: 'https://static.bbci.co.uk/wwhp/1.146.0/responsive/img/apple-touch/apple-touch-180.jpg',
-        url: 'https://www.bbc.com/',
-        site_name: 'BBC'
-      },
-      screenshot: 'https://i.imgur.com/mLdeNo4.png'
-    };
-  }
+    this.http
+      .get('og', {
+        params: {
+          url: encodeURI(this.url.nativeElement.value)
+        }
+      })
+      .subscribe(resp => {
+        this.og = resp;
+      });
 
+    this.screenshot = `${environment.apiUrl}/screenshot?url=${encodeURI(this.url.nativeElement.value)}`;
+  }
 }

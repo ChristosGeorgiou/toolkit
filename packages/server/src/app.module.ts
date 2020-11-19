@@ -1,11 +1,15 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { GeoipModule } from './geoip/geoip.module';
+import { CacheModule, Module } from "@nestjs/common";
+import { GeoipController } from "./controllers/geoip.controller";
+import { OgController } from "./controllers/og.controller";
+import { ScreenshotsController } from "./controllers/screenshot.controller";
 
 @Module({
-  imports: [GeoipModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [CacheModule.register()],
+  controllers: [
+    GeoipController,
+    OgController,
+    ScreenshotsController,
+  ],
+  providers: [],
 })
 export class AppModule {}

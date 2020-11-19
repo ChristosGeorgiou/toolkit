@@ -8,33 +8,34 @@
   <div class="px-2 mb-4 text-muted">
     try <a href="javascript:void(0)" (click)="url.value='https://www.bbc.com/';getMetadata();">bbc.com</a>
   </div>
-  <ng-container *ngIf="metadata?.og">
-    <div class="card mb-4">
+  <ng-container *ngIf="og">
+    <div class="card">
       <div class="card-body">
-        <div class="title">Open Graph</div>
+        <div class="card-title">Open Graph</div>
         <div class="row">
           <div class="col-4">
             <div class="image">
-              <img [src]="metadata.og.image" class="img-fluid" alt="og image">
+              <img [src]="og.image" class="img-fluid" alt="og image">
             </div>
           </div>
           <div class="col-8">
-            <div> <strong>{{metadata.og.title}}</strong></div>
+            <div> <strong>{{og.title}}</strong></div>
             <ul class="list-inline mb-1">
-              <li class="list-inline-item">{{metadata.og.url}} - </li>
-              <li class="list-inline-item">{{metadata.og.site_name}} - </li>
-              <li class="list-inline-item">{{metadata.og.type}}</li>
+              <li class="list-inline-item">{{og.url}} - </li>
+              <li class="list-inline-item">{{og.type}}</li>
             </ul>
-            <div><small>{{metadata.og.description}}</small></div>
+            <div><small>{{og.description}}</small></div>
           </div>
         </div>
       </div>
     </div>
   </ng-container>
-  <ng-container *ngIf="metadata?.screenshot">
-    <div class="card mb-4">
-      <div class="title">Screenshot</div>
-      <img [src]="metadata.screenshot" class="img-fluid" alt="screenshot">
+  <ng-container *ngIf="screenshot">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">Screenshot</div>
+      </div>
+      <img [src]="screenshot" class="img-fluid" alt="screenshot">
     </div>
   </ng-container>
 </app-base>

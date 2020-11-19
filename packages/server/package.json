@@ -26,9 +26,12 @@
     "@nestjs/platform-express": "^7.5.4",
     "@types/geoip-lite": "^1.4.0",
     "@types/helmet": "^4.0.0",
+    "cache-manager": "^3.4.0",
+    "capture-website": "^1.2.4",
     "geoip-lite": "^1.4.2",
     "helmet": "^4.2.0",
     "mo": "^1.7.3",
+    "open-graph-scraper": "^4.7.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.3"
