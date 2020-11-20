@@ -1,32 +1,12 @@
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import * as helmet from "helmet";
-import { utilities as nestWinstonModuleUtilities, WinstonModule } from "nest-winston";
-import * as winston from "winston";
 import { AppModule } from "./app.module";
-
-const transports = [
-  new winston.transports.File({
-    filename: './logs/combined.log',
-    level: 'info'
-  }),
-  new winston.transports.File({
-    filename: './logs/errors.log',
-    level: 'error'
-  }),
-  new winston.transports.Console({
-    format: winston.format.combine(
-      winston.format.timestamp(),
-      nestWinstonModuleUtilities.format.nestLike(),
-    ),
-  }),
-]
+import { logger } from "./middlewares/logger.middleware";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    logger: WinstonModule.createLogger({
-      transports
-    })
+    logger: logger
   });
   
   app.use(helmet());

@@ -1,8 +1,10 @@
-import { CacheModule, Module } from "@nestjs/common";
+import { CacheModule, MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
+import { APP_INTERCEPTOR } from "@nestjs/core";
 import { GeoipController } from "./controllers/geoip.controller";
 import { HealthController } from "./controllers/health.controller";
 import { OgController } from "./controllers/og.controller";
 import { ScreenshotsController } from "./controllers/screenshot.controller";
+import { LoggingInterceptor } from "./interceptors/logging.interceptor";
 
 @Module({
   imports: [
@@ -14,6 +16,16 @@ import { ScreenshotsController } from "./controllers/screenshot.controller";
     ScreenshotsController,
     HealthController,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: LoggingInterceptor,
+    },],
 })
-export class AppModule { }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    // consumer
+    //   .apply(LoggerMiddleware)
+    //   .forRoutes('/');
+  }
+}
