@@ -3,7 +3,6 @@ import { APP_INTERCEPTOR } from "@nestjs/core";
 import { GeoipController } from "./controllers/geoip.controller";
 import { HealthController } from "./controllers/health.controller";
 import { OgController } from "./controllers/og.controller";
-import { ScreenshotsController } from "./controllers/screenshot.controller";
 import { LoggingInterceptor } from "./interceptors/logging.interceptor";
 
 @Module({
@@ -13,7 +12,7 @@ import { LoggingInterceptor } from "./interceptors/logging.interceptor";
   controllers: [
     GeoipController,
     OgController,
-    ScreenshotsController,
+    // ScreenshotsController,
     HealthController,
   ],
   providers: [
