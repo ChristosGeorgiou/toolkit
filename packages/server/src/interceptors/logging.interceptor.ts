@@ -1,4 +1,5 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
+import * as cuid from 'cuid';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { logger } from 'src/middlewares/logger.middleware';
@@ -6,24 +7,29 @@ import { logger } from 'src/middlewares/logger.middleware';
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    
+    const ctx = context.switchToHttp()
+    const uid =  cuid()
 
-    const request = context.switchToHttp().getRequest<Request>();
-
+    const request = ctx.getRequest<Request>();
+    
     logger.log({
+      uid,
       url: request.url,
       headers: request.headers,
-      method: request.method
-    }, "LoggingInterceptor");
+      method: request.method,
+    }, "ReqRes:Request");
 
     return next
       .handle()
       .pipe(
-        tap(() => {
-          const response = context.switchToHttp().getResponse<Response>();
+        tap((body) => {
+          const response = ctx.getResponse();
           logger.log({
-            statusCode: response.status,
-            body:response.body
-          }, "LoggingInterceptor")
+            uid,
+            statusCode: response.statusCode,
+            body,
+          }, "ReqRes:Response")
         })
       );
   }

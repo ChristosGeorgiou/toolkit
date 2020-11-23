@@ -4,11 +4,11 @@ import * as winston from "winston";
 export const logger = WinstonModule.createLogger({
   transports: [
     new winston.transports.File({
-      filename: './logs/combined.log',
+      filename: './logs/combined.jsonl',
       level: 'info'
     }),
     new winston.transports.File({
-      filename: './logs/errors.log',
+      filename: './logs/errors.jsonl',
       level: 'error'
     }),
     new winston.transports.Console({
