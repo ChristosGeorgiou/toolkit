@@ -1,38 +1,43 @@
 # Tools
 
-- Og Image Generator
-- Bitmap to Vector
-- Clock Tools (alarm, stopwatch)
-- Color Generator
-- Cron
-- Dynamic DNS
-- Earthquakes Explorer
-- Icon Generator
-- Badge Image Editor
-- Template PDF Generator
-- Network Tools (speed test, ping, traceroute)
-- Push Notification
-- PWA Generator
-- Random Data Generators (passwords, lorem, datasets)
-- Remote Desktop / Screen Share
-- Support Details
-- UTF8 to ANSI Convertor
-- Website Metadata Extract (og, screenshot, tech stack)
-- Codes Generator
-- Email Extractor
-- Image Mirror
-- Image Resizer
-- Image Rotator
-- 3x Resizer
-- Image to JPEG
-- Image Metadata Remover
-- Thumbnail Creator
-- PDF Merger
-- PDF Page Exporter
-- Text Randomizer
-- Text Sorter
-- Quick Contest
-~~- Youtube downloader~~
+- [x] Support Details
+- [ ] Image Editor
+  - [ ] Batch process
+  - [ ] Extract colors
+  - [ ] Remove background
+  - [ ] Transformations (translate, scale, skew etc)
+  - [ ] Upscale
+  - [ ] Metadata Remover
+  - [ ] Compress
+  - [ ] Thumbnail
+  - [ ] Content Analyze
+  - [ ] Vectorize
+  - [ ] Iconize
+- [ ] Og Image Generator
+- [ ] Clock
+  - [ ] alarm
+  - [ ] stopwatch
+- [ ] Color Generator
+- [ ] Cron
+- [ ] Dynamic DNS
+- [ ] Earthquakes Explorer
+- [ ] PDF Generator
+  - [ ] Images import
+  - [ ] Images export
+  - [ ] Merge
+- [ ] Network Tools (speed test, ping, traceroute)
+- [ ] Push Notification
+- [ ] PWA Generator
+- [ ] Random Data Generators (passwords, lorem, datasets)
+- [ ] Remote Desktop / Screen Share
+- [ ] UTF8 to ANSI Convertor
+- [ ] Website Analyzer
+  - [x] Metadata Extract (og)
+  - [x] screenshot
+  - [ ] tech stack
+- [ ] Text Tools
+  - [ ] Data Extractor (email, urls)
+  - [ ] Line Sorter
 
 ## Earthquakes Explorer
 
