@@ -5,14 +5,13 @@ WORKDIR /app
 ENV PATH=${PATH}:./node_modules/.bin
 ENV NODE_PATH=/app/node_modules
 
-COPY package.json package-lock.json .npmrc ./
+COPY package.json package-lock.json ./
 RUN npm ci
 RUN ngcc
 
 COPY src ./src
 COPY angular.json tsconfig.app.json tsconfig.json tslint.json ./
-COPY scripts ./scripts
-RUN npm run build-prod
+RUN npm run build -- --prod
 
 COPY extras ./extras
 
