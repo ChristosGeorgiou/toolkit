@@ -1,38 +1,28 @@
 :host {
   .tool {
-    width: 290px;
+    width: 120px;
     display: flex;
     margin: 0.5rem;
     text-decoration: none;
-    color: var(--bs-gray-dark);
-    align-items: flex-start;
-    // border: solid 1px var(--bs-gray);
-    // background-color: var(--bs-white);
-    // box-shadow: 0 0 .2rem #bbbbbb;
-    // border-radius: 1rem;
-    // padding: 0.5rem;
+    align-items: center;
+    height: 120px;
+    border-radius: 1rem;
+    justify-content: center;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.705);
+    text-align: center;
+
     .tool-icon {
       font-size: 3rem;
-      margin-right: 1rem;
-      min-width: 70px;
-      text-align: center;
-      border-radius: 1rem;
-      span {
-        color: #fff;
-      }
+      margin-bottom: .2rem;
     }
-    .tool-body {
-      .tool-title {
-        font-size: 1.2rem;
-      }
-      .tool-description {
-        font-size: 0.8rem;
-        color: var(--bs-gray);
-      }
+
+    .tool-title {
+      font-size: 1rem;
+      padding: 0 1.5rem;
     }
     &:hover {
-      color: var(--bs-gray);
-      // box-shadow: 0 .2rem .4rem #bbbbbb;
+      color: #fff;
     }
   }
 }

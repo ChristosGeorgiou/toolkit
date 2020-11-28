@@ -10,7 +10,7 @@ export const TOOLS = [{
   icon: 'fas fa-globe-europe',
   link: '/metadata',
   color: '#4CAF50',
-  title: 'Web Metadata',
+  title: 'Metadata',
   description: 'Get metadata of any website with screenshots'
 }, {
   name: 'pcinfo',

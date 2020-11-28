@@ -11,14 +11,21 @@ body {
   .card-title {
     font-weight: light;
     font-size: 1.2rem;
-    span{
-      color:var(--bs-gray-dark)
+    span {
+      color: var(--bs-gray-dark);
     }
   }
 
-  dl{
-    dt{
+  dl {
+    dt {
       text-align: right;
     }
+  }
+}
+
+* {
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
   }
 }

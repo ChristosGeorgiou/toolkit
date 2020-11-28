@@ -1,5 +1,12 @@
 # Tools
 
+## General features
+
+- [ ] push notification (companion)
+- [ ] fullscreen
+
+## tool-list
+
 - [x] Support Details
 - [ ] Image Editor
   - [ ] Batch process
@@ -16,6 +23,8 @@
 - [ ] Og Image Generator
 - [ ] Clock
   - [ ] alarm
+  - [ ] time & world time
+  - [ ] timer
   - [ ] stopwatch
 - [ ] Color Generator
 - [ ] Cron

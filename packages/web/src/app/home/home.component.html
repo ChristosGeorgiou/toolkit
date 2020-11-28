@@ -1,4 +1,4 @@
-<app-base size="lg">
+<app-base>
   <div class="row mb-4">
     <div class="offset-lg-2 col-lg-8">
       <div class="text-center p-4">
@@ -11,14 +11,9 @@
   </div>
   <div class="d-flex flex-wrap justify-content-center">
     <ng-container *ngFor="let tool of tools">
-      <a [routerLink]="tool.link" class="tool">
-        <div class="tool-icon" [ngStyle]="{'background-color':tool.color}">
-          <span class="{{tool.icon}}"></span>
-        </div>
-        <div class="tool-body">
-          <div class="tool-title">{{tool.title}}</div>
-          <div class="tool-description">{{tool.description}}</div>
-        </div>
+      <a [routerLink]="tool.link" class="tool" [ngStyle]="{'background-color':tool.color}">
+        <span class="tool-icon {{tool.icon}}"></span>
+        <span class="tool-title">{{tool.title}}</span>
       </a>
     </ng-container>
   </div>
