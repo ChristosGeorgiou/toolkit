@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TOOLS } from '@shared/models/all';
+import { add } from 'date-fns';
 
 @Component({
   selector: 'app-clock',
@@ -12,6 +13,11 @@ export class ClockComponent implements OnInit {
   minutes = '00';
   seconds = '00';
   color: string;
+
+  alarm = {
+    status: 'active',
+    time: add(new Date(), { seconds: 10 })
+  };
 
   constructor() { }
 

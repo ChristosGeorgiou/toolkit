@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable, NgModule } from '@angular/core';
+import { DateFnsModule } from 'ngx-date-fns';
+import { NgxMaskModule } from 'ngx-mask';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -15,7 +17,9 @@ export class APIInterceptor implements HttpInterceptor {
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot(),
+    DateFnsModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
