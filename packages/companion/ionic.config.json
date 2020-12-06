@@ -1,6 +1,8 @@
 {
   "name": "tools companion",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "ac2badf7"
 }

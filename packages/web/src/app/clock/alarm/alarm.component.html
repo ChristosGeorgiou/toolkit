@@ -1,1 +1,8 @@
-<p>alarm works!</p>
+
+<h1>Set Alarm</h1>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="hh:mm:ss" mask="Hh:m0:s0">
+</div>
+<span>status: {{alarm.status}} - {{alarm.time | dfnsFormatDistanceToNow}}</span>
+<button>Activate </button>
+<button>Deactivate</button>

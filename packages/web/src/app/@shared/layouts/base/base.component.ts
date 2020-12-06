@@ -13,8 +13,6 @@ export class BaseComponent implements OnInit {
   @Input() back;
   @Input() tool;
 
-  color: string;
-
   isFullscreen = false;
   elem: any;
 
@@ -23,12 +21,13 @@ export class BaseComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.tool) {
-      const t = TOOLS.find(x => x.name === this.tool);
-      this.color = t.color;
-    }
 
     this.elem = document.documentElement;
+
+    if (this.tool) {
+    }
+    const color = this.tool ? TOOLS.find(x => x.name === this.tool).color : '#333';
+    document.documentElement.style.setProperty('--bs-primary', color);
   }
 
   openFullscreen(): void {

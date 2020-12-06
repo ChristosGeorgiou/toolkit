@@ -1,12 +1,7 @@
 :host {
-  .top-border{
-    position: absolute;
-    height: 7px;
-    background-color: #444;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
+  display: block;
+  border-top: solid 5px var(--bs-primary);
+
   .size-md {
     max-width: 768px;
   }
@@ -21,5 +16,14 @@
     a {
       color: var(--bs-gray);
     }
+  }
+}
+
+::ng-deep {
+  .bg-primary {
+    background-color: var(--bs-primary) !important;
+  }
+  .btn.active {
+    background-color: var(--bs-primary) !important;
   }
 }

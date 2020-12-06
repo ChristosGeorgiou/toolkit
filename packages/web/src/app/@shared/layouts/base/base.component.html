@@ -1,8 +1,6 @@
-<div class="top-border" [ngStyle]="{'background-color':color}"></div>
 <div class="container size-{{size}}">
   <div class="d-flex justify-content-between align-items-center py-2">
     <div>
-
       <a *ngIf="back" [routerLink]="back.route" class="btn btn-light">
         <span class="fas fa-chevron-left fa-fw text-muted"></span> {{back.label}}
       </a>
