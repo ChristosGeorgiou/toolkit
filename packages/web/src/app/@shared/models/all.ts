@@ -19,4 +19,11 @@ export const TOOLS = [{
   color: '#E91E63',
   title: 'PC Info',
   description: 'Show you pc info. You may share with your support'
+}, {
+  name: 'sketch',
+  icon: 'fab fa-sketch',
+  link: '/sketch',
+  color: '#FBC02D',
+  title: 'Sketch',
+  description: ''
 }];

@@ -3,6 +3,7 @@ import { APP_INTERCEPTOR } from "@nestjs/core";
 import { GeoipController } from "./controllers/geoip.controller";
 import { HealthController } from "./controllers/health.controller";
 import { OgController } from "./controllers/og.controller";
+import { EventsGateway } from "./gateways/events.gateway";
 import { LoggingInterceptor } from "./interceptors/logging.interceptor";
 
 @Module({
@@ -19,7 +20,9 @@ import { LoggingInterceptor } from "./interceptors/logging.interceptor";
     {
       provide: APP_INTERCEPTOR,
       useClass: LoggingInterceptor,
-    },],
+    },
+    EventsGateway
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
