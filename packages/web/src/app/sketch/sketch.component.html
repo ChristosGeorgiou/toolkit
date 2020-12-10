@@ -1,43 +1,43 @@
 <app-base size="lg" [back]="{route:'/',label:'home'}" tool="sketch">
   <app-header tool="sketch"></app-header>
-  <div class="row">
-    <div class="col-8">
-      <div class="card" style="height:600px">
-        <div class="bg-light m-2 p-2 border rounded d-flex align-items-center justify-content-between">
-          <div class="d-flex align-items-center">
-            <input type="color" class="mr-4" (change)="selectColor($event.target)">
-            <input type="range" class="mr-2" min="1" max="72" value="1" (change)="selectWidth($event.target)">
-            <label>{{lineWidth}}</label>Px
-          </div>
-          <button class="btn btn-sm btn-outline-secondary" (click)="clear()">
-            <span class="fas fa-trash-alt"></span>
-          </button>
-        </div>
-        <div #paint class="paint">
-          <canvas #canvas (mousedown)=" startDrawing($event)" (mousemove)=" drawLine($event)" (mouseup)=" stopDrawing()"
-            (mouseout)=" stopDrawing()"></canvas>
-        </div>
-        <div class="bg-light m-2 p-2 border rounded d-flex align-items-center justify-content-between">
-          <div class="d-flex align-items-center">
 
-          </div>
-          <button class="btn btn-sm btn-primary" (click)="export()">
-            Export
-          </button>
+  <div class="card" style="height:600px">
+    <div class="d-flex h-100">
+      <div class="d-flex flex-column bg-light m-2 p-2 border rounded">
+        <div class="d-flex align-items-center">
+          <input type="color" class="mr-4" (change)="selectColor($event.target)">
+          <input type="range" class="mr-2" min="1" max="72" value="1" (change)="selectWidth($event.target)">
+          <label>{{lineWidth}}</label>Px
         </div>
+        <button class="btn btn-sm btn-outline-secondary" (click)="clear()">
+          <span class="fas fa-trash-alt"></span>
+        </button>
+      </div>
+      <div #paint class="paint">
+        <canvas #canvas (mousedown)=" startDrawing($event)" (mousemove)=" drawLine($event)" (mouseup)=" stopDrawing()"
+          (mouseout)=" stopDrawing()"></canvas>
       </div>
     </div>
-    <div class="col-4">
-      <div class="card">
-        <div class="card-header">
-          Room: <strong>{{room}}</strong>
-          <button class="btn btn-outline-dark border-0 btn-sm" (click)="changeRoom()">change</button>
-        </div>
-        <div class="card-body">
-          <ng-container *ngFor="let u of users">
-            <div>{{user}}</div>
-          </ng-container>
-        </div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+
+      </div>
+      <button class="btn btn-sm btn-primary" (click)="export()">
+        Export
+      </button>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header">
+        Room: <strong>{{room}}</strong>
+        <button class="btn btn-outline-dark border-0 btn-sm" (click)="changeRoom()">change</button>
+      </div>
+      <div class="card-body">
+        <ng-container *ngFor="let u of users">
+          <div>{{user}}</div>
+        </ng-container>
       </div>
     </div>
   </div>

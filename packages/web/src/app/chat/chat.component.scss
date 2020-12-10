@@ -1,0 +1,21 @@
+:host {
+  .timeline {
+    height: 0;
+    overflow-y: auto;
+    .message {
+      display: flex;
+      align-items: flex-start;
+      .time {
+        font-size: 0.8rem;
+        color: #aaa;
+        margin: 0.2rem 0.5rem .3rem 0;
+      }
+      .avatar {
+        width: 16px;
+        height: 16px;
+        margin: 0.3rem 0.5rem .3rem 0;
+        border-radius: 8px;
+      }
+    }
+  }
+}

@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import * as cuid from 'cuid';
 import { Socket } from 'ngx-socket-io';
 
-
 @Component({
   selector: 'app-sketch',
   templateUrl: './sketch.component.html',

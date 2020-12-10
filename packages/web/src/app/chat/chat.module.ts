@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
-import { SketchComponent } from './sketch.component';
+import { ChatComponent } from './chat.component';
 
 @NgModule({
-  declarations: [SketchComponent],
+  declarations: [ChatComponent],
   imports: [
     SharedModule,
     FormsModule,
     RouterModule.forChild([{
       path: '',
-      component: SketchComponent
+      component: ChatComponent
     }])
   ]
 })
-export class SketchModule { }
+export class ChatModule { }

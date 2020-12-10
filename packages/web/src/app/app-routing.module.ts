@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'metadata', loadChildren: () => import('./metadata/metadata.module').then(m => m.MetadataModule) },
   { path: 'pcinfo', loadChildren: () => import('./pcinfo/pcinfo.module').then(m => m.PcinfoModule) },
   { path: 'sketch', loadChildren: () => import('./sketch/sketch.module').then(m => m.SketchModule) },
+  { path: 'chat', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule) },
   {
     path: '',
     pathMatch: 'full',

@@ -44,9 +44,11 @@
   - [x] Metadata Extract (og)
   - [x] screenshot
   - [ ] tech stack
+  - [ ] convert to markdown
 - [ ] Text Tools
   - [ ] Data Extractor (email, urls)
   - [ ] Line Sorter
+- [ ] Sketchboard
 
 ## Earthquakes Explorer
 

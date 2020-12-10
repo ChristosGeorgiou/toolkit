@@ -26,4 +26,11 @@ export const TOOLS = [{
   color: '#FBC02D',
   title: 'Sketch',
   description: ''
+}, {
+  name: 'chat',
+  icon: 'fas fa-comments',
+  link: '/chat',
+  color: '#673AB7',
+  title: 'Chat',
+  description: ''
 }];
