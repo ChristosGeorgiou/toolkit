@@ -1,0 +1,177 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  
+  server:
+    name: server
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - name: check out code
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Set up QEMU
+        id: qemu
+        uses: docker/setup-qemu-action@v1
+        with:
+          image: tonistiigi/binfmt:latest
+          platforms: all
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: cgeosoft/tools-server:latest
+          build-args: |
+            arg1=value1
+            arg2=value2
+
+      # - name: check out code
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ref: master
+
+      # - name: Get the version
+      #   id: vars
+      #   run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+
+      # - name: Build the tagged Docker image    
+      #   working-directory: packages/server
+      #   run: docker build . --tag cgeosoft/tools-server:${{steps.vars.outputs.tag}}
+      
+      # - name: Push the tagged Docker image
+      #   run: docker push cgeosoft/tools-server:${{steps.vars.outputs.tag}}
+
+      # - name: Build the latest Docker image
+      #   working-directory: packages/server
+      #   run: docker build . --tag cgeosoft/tools-server:latest
+
+      # - name: Push the latest Docker image
+      #   run: docker push cgeosoft/tools-server:latest
+
+      # - name: Push to Docker Hub
+      #   uses: docker/build-push-action@v1
+      #   with:
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_PASSWORD }}
+      #     repository: cgeosoft/tools-server
+      #     tag_with_ref: true
+
+      # - name: cache node modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
+
+      # - name: node ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+
+      # - name: npm install
+      #   working-directory: packages/server
+      #   run: |
+      #     npm ci
+
+      # - name: build
+      #   working-directory: packages/server
+      #   run: |
+      #     npm build
+
+      # - name: copy dist
+      #   working-directory: packages/server
+      #   run: |
+      #     cp -r ./dist .
+
+      # - name: Push to Docker Hub
+      #   uses: docker/build-push-action@v1
+      #   with:
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_PASSWORD }}
+      #     repository: cgeosoft/tools-server
+      #     tag_with_ref: true
+
+      # - name: serverless deploy
+      #   uses: serverless/github-action@master
+      #   with:
+      #     args: deploy
+      #   env:
+      #     SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+          # or if using AWS credentials directly
+          # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  # companion-android:
+  #   name: companion Android
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout source
+  #       uses: actions/checkout@v2
+
+  #     - name: setup java
+  #       uses: actions/setup-java@v1
+  #       with:
+  #         java-version: 1.8
+
+  #     - name: setup Node.js
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 13.x
+
+  #     - name: install Ionic
+  #       run: npm install -g @ionic/cli
+
+  #     - name: install app dependencies
+  #       working-directory: ./packages/companion
+  #       run: npm install
+
+  #     - name: add Android platform
+  #       working-directory: ./packages/companion
+  #       run: ionic cordova platform add android@latest
+
+  #     - name: build Android Dev APK
+  #       working-directory: ./packages/companion
+  #       run: ionic cordova build android
+
+  #     - name: build Android Release APK
+  #       working-directory: ./packages/companion
+  #       run: ionic cordova build android --release --prod
+
+  #     - name: generate the Android App Bundle
+  #       working-directory: ./packages/companion/platforms/android/
+  #       run: ./gradlew bundle
+
+  #     - name: upload dev APK
+  #       uses: actions/upload-artifact@v1
+  #       with:
+  #         name: app-dev
+  #         path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+
+  #     - name: upload release bundle
+  #       uses: actions/upload-artifact@v1
+  #       with:
+  #         name: app-release
+  #         path: platforms/android/app/build/outputs/bundle/release/app.aab.x
+
+  
