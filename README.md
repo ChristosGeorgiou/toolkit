@@ -21,6 +21,7 @@
   - [ ] Vectorize
   - [ ] Iconize
 - [ ] Og Image Generator
+- [ ] QRCode Generator
 - [ ] Clock
   - [ ] alarm
   - [ ] time & world time

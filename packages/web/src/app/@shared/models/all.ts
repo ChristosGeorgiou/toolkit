@@ -33,4 +33,11 @@ export const TOOLS = [{
   color: '#673AB7',
   title: 'Chat',
   description: ''
+}, {
+  name: 'qrcode',
+  icon: 'fas fa-qrcode',
+  link: '/qrcode',
+  color: '#607D8B',
+  title: 'QRCode',
+  description: ''
 }];

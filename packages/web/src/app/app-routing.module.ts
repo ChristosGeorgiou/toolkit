@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'pcinfo', loadChildren: () => import('./pcinfo/pcinfo.module').then(m => m.PcinfoModule) },
   { path: 'sketch', loadChildren: () => import('./sketch/sketch.module').then(m => m.SketchModule) },
   { path: 'chat', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule) },
+  { path: 'qrcode', loadChildren: () => import('./qrcode/qrcode.module').then(m => m.QrcodeModule) },
   {
     path: '',
     pathMatch: 'full',
