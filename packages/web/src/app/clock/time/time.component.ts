@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TOOLS } from '@shared/models/all';
+import { TOOLS } from '@shared/models/tools.contant';
 
 @Component({
   selector: 'app-time',

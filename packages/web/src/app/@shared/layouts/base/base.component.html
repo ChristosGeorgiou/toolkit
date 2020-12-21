@@ -5,15 +5,17 @@
         <span class="fas fa-chevron-left fa-fw text-muted"></span> {{back.label}}
       </a>
     </div>
-    <div>
-      <button class="btn btn-light" (click)="toggleFullscreen()">
-        <span class="fas fa-fw text-muted" [ngClass]="{'fa-expand':!isFullscreen,'fa-compress':isFullscreen}"></span>
-      </button>
-    </div>
   </div>
   <ng-content></ng-content>
 </div>
 <div class="footer">
-  Made with <span class="far fa-heart text-danger"></span>
-  by <a href="https://cgeosoft.com" target="_black">cgeosoft</a>
+  <div>
+    <button class="btn btn-light" (click)="toggleFullscreen()">
+      <span class="fas fa-fw text-muted" [ngClass]="{'fa-expand':!isFullscreen,'fa-compress':isFullscreen}"></span> fullscreen
+    </button>
+  </div>
+  <div>
+    Made with <span class="far fa-heart text-danger"></span>
+    by <a href="https://cgeosoft.com" target="_black">cgeosoft</a>
+  </div>
 </div>

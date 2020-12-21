@@ -2,18 +2,18 @@
   <div class="row mb-4">
     <div class="offset-lg-2 col-lg-8">
       <div class="text-center p-4">
-        <h1 class="display-1">Welcome!</h1>
-        <div>Tools are free and respect your privacy.</div>
-        <div>Nothing will be saved in our servers unless is stated otherwise.</div>
-        <div>Select any tool to begin.</div>
+        <h1 class="display-1 mb-4">tools</h1>
+        <p>This is a list of mini tools that I use for common daily tasks.</p>
+        <p>All tools are free and respect your privacy. Nothing will be saved in our servers unless is stated
+          otherwise.</p>
       </div>
     </div>
   </div>
   <div class="d-flex flex-wrap justify-content-center">
-    <ng-container *ngFor="let tool of tools">
-      <a [routerLink]="tool.link" class="tool" [ngStyle]="{'background-color':tool.color}">
-        <span class="tool-icon {{tool.icon}}"></span>
-        <span class="tool-title">{{tool.title}}</span>
+    <ng-container *ngFor="let t of tools">
+      <a [routerLink]="t.link" class="tool" [ngStyle]="{'background-color':t.color}" [ngbTooltip]="t.description">
+        <span class="tool-icon {{t.icon}}"></span>
+        <span class="tool-title">{{t.title}}</span>
       </a>
     </ng-container>
   </div>

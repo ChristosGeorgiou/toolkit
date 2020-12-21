@@ -4,7 +4,7 @@ export const TOOLS = [{
   link: '/clock',
   color: '#3F51B5',
   title: 'Clock',
-  description: 'Set alarm, timewatches etc'
+  description: 'Clock on steroids. View global time, set alarms and timewatches'
 }, {
   name: 'metadata',
   icon: 'fas fa-globe-europe',
@@ -39,5 +39,5 @@ export const TOOLS = [{
   link: '/qrcode',
   color: '#607D8B',
   title: 'QRCode',
-  description: ''
+  description: 'QRcode generator for every URI'
 }];
