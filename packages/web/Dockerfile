@@ -15,7 +15,7 @@ RUN npm run build -- --prod
 
 COPY extras ./extras
 
-FROM nginx:alpine
+FROM nginx:1.21-alpine
 
 EXPOSE 80
 
